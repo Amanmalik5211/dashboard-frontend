@@ -38,7 +38,9 @@ const ContactsTable = () => {
       params.append("value", fieldValue);
     }
 
-    fetch(`http://localhost:5000/api/contacts?${params.toString()}`)
+// http://localhost:5000/
+
+    fetch(`https://dashboard-backend-a28o.onrender.com/api/contacts?${params.toString()}`)
       .then((res) => res.json())
       .then((data) => {
         setContacts(data?.data || []);
@@ -66,8 +68,9 @@ const ContactsTable = () => {
     );
   };
 
+  // http://localhost:5000/
   const handleDelete = () => {
-    fetch("http://localhost:5000/api/contacts", {
+    fetch("https://dashboard-backend-a28o.onrender.com/api/contacts", {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ ids: selectedIds }),
